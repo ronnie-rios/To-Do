@@ -16,6 +16,10 @@ const App = () => {
     setItems([...items, item])
   }
   
+  const deleteItem = (id) => {
+    setItems(items.filter((item)=> item.id !== id))
+  }
+
   return (
     <div className="container">
       <h1>To Do</h1>
@@ -27,7 +31,7 @@ const App = () => {
       </div>
       <div className="flex-large">
         <h2>View Items</h2>
-        <UserTable items={items}/>
+        <UserTable items={items} deleteItem={deleteItem} />
       </div>
     </div>
   )
