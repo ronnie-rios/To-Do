@@ -1,7 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import UserTable from './tables/UserTable'
 
 const App = () => {
+  const itemData = [
+    {id: 1, title: 'Clean', action: 'clean the bedroom'},
+    {id: 2, title: 'HW', action: 'complete homework'},
+    {id: 3, title: 'Fridge', action: 'organize fridge'},
+  ]
+
+  const [items, setItems ] = useState(itemData);
+  
   return (
     <div className="container">
       <h1>To Do</h1>
@@ -12,7 +20,7 @@ const App = () => {
       </div>
       <div className="flex-large">
         <h2>View Items</h2>
-        <UserTable />
+        <UserTable items={items}/>
       </div>
     </div>
   )
