@@ -9,6 +9,11 @@ const App = () => {
   ]
 
   const [items, setItems ] = useState(itemData);
+
+  const addItem = (item) => {
+    item.id = items.length +1
+    setItems([...items, item])
+  }
   
   return (
     <div className="container">
