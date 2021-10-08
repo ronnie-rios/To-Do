@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {Fragment, useState} from 'react'
 import AddUserForms from './forms/AddUserForms';
 import UserTable from './tables/UserTable'
+import EditItemForm from './forms/EditItemForm';
+
 
 const App = () => {
   const itemData = [
@@ -41,14 +43,28 @@ const App = () => {
       <h1>To Do</h1>
       <div className="flex-row">
         <div className="flex-large">
-          <h2>add item</h2>
-          <AddUserForms addItem={addItem} />
-        </div>    
+          {editing ? (
+              <Fragment>
+                <h2>Edit Item</h2>
+                  <EditItemForm
+                    editing={editing}
+                    setEditing={setEditing}
+                    currentItem={currentItem}
+                    updateItem={updateItem} 
+                  />
+              </Fragment>
+            ) : (
+              <Fragment>
+                <h2>add item</h2>
+                <AddUserForms addItem={addItem} />
+             </Fragment>  
+            )}
       </div>
       <div className="flex-large">
         <h2>View Items</h2>
         <UserTable items={items} editRow={editRow} deleteItem={deleteItem} />
       </div>
+    </div>
     </div>
   )
 }
