@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import AddUserForms from './forms/AddUserForms';
 import UserTable from './tables/UserTable'
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       <div className="flex-row">
         <div className="flex-large">
           <h2>add item</h2>
+          <AddUserForms addItem={addItem} />
         </div>    
       </div>
       <div className="flex-large">

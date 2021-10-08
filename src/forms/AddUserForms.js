@@ -9,7 +9,14 @@ const AddUserForms = (props) => {
         setItem({...item,[title]: value})
     }
     return (
-        <form>
+        <form
+            onSubmit={event => {
+                event.preventDefault()
+                if (!item.name || !item.action) return
+                props.addItem(item)
+                setItem(initialFormState)
+            }}
+        >
             <label>Title</label>
             <input 
                 type='text' 
